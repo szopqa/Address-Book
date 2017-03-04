@@ -9,32 +9,37 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AddressBook {
+
+	/*
+	 *	User enters new contact informations into text boxes
+	 *	Then informations are returned as Person's object properties
+	 */
+
 	public partial class AddNew_form : Form {
 
-		People person = new People();
 
-		public People new_person {
-			get { return person; }
-			set {
-				person = value;
-			}
-		}
+		public People Person { get; set; }
+
+
 
 		public AddNew_form () {
 			InitializeComponent();
 		}
 
+
 		private void AddBtn_Click ( object sender, EventArgs e ) {
 
-			person.Name = NameBox.Text;
-			person.Surname = SurnameBox.Text;
-			person.BirthDate = DateBox.Text;
-			person.PhoneNumber = PhoneBox.Text;
-			person.EmailAddress = MailBox.Text;
-			person.City = CityBox.Text;
-			person.Address = AddressBox.Text;
-			person.AditionalInfo = NoteBox.Text;
+			Person.Surname = SurnameBox.Text;
+			Person.Name = NameBox.Text;
+			Person.BirthDate = DateBox.Text;
+			Person.PhoneNumber = PhoneBox.Text;
+			Person.EmailAddress = MailBox.Text;
+			Person.City = CityBox.Text;
+			Person.Address = AddressBox.Text;
+			Person.AditionalInfo = NoteBox.Text;
 
 		}
+
+
 	}
 }
