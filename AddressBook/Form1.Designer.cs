@@ -24,12 +24,12 @@
 		/// </summary>
 		private void InitializeComponent () {
 			this.ContactsGroupBox = new System.Windows.Forms.GroupBox();
+			this.ContactsList = new System.Windows.Forms.ListBox();
 			this.AddNewBtn = new System.Windows.Forms.Button();
 			this.ShowMoreBtn = new System.Windows.Forms.Button();
 			this.RemoveBtn = new System.Windows.Forms.Button();
 			this.SearchBtn = new System.Windows.Forms.Button();
 			this.SettingsBtn = new System.Windows.Forms.Button();
-			this.ContactsList = new System.Windows.Forms.ListBox();
 			this.ContactsGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -43,6 +43,16 @@
 			this.ContactsGroupBox.TabIndex = 0;
 			this.ContactsGroupBox.TabStop = false;
 			this.ContactsGroupBox.Text = "Contacts";
+			// 
+			// ContactsList
+			// 
+			this.ContactsList.FormattingEnabled = true;
+			this.ContactsList.ItemHeight = 20;
+			this.ContactsList.Location = new System.Drawing.Point(7, 22);
+			this.ContactsList.Name = "ContactsList";
+			this.ContactsList.Size = new System.Drawing.Size(239, 264);
+			this.ContactsList.TabIndex = 0;
+			this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
 			// 
 			// AddNewBtn
 			// 
@@ -91,16 +101,6 @@
 			this.SettingsBtn.Text = "Settings";
 			this.SettingsBtn.UseVisualStyleBackColor = true;
 			// 
-			// ContactsList
-			// 
-			this.ContactsList.FormattingEnabled = true;
-			this.ContactsList.ItemHeight = 20;
-			this.ContactsList.Location = new System.Drawing.Point(7, 22);
-			this.ContactsList.Name = "ContactsList";
-			this.ContactsList.Size = new System.Drawing.Size(239, 264);
-			this.ContactsList.TabIndex = 0;
-			this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +113,7 @@
 			this.Controls.Add(this.AddNewBtn);
 			this.Controls.Add(this.ContactsGroupBox);
 			this.Name = "Form1";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.ContactsGroupBox.ResumeLayout(false);
 			this.ResumeLayout(false);

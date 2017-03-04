@@ -214,6 +214,7 @@
 			this.Controls.Add(this.SurnameLbl);
 			this.Controls.Add(this.NameLbl);
 			this.Name = "AddNew_form";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AddNewForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();

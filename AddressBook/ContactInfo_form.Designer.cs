@@ -25,12 +25,13 @@
 		private void InitializeComponent () {
 			this.SuspendLayout();
 			// 
-			// ContactInfo
+			// ContactInfo_form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(490, 261);
-			this.Name = "ContactInfo";
+			this.Name = "ContactInfo_form";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ContactInfo";
 			this.ResumeLayout(false);
 
