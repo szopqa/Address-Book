@@ -46,7 +46,7 @@
 			// 
 			this.NameLbl.AutoSize = true;
 			this.NameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.NameLbl.Location = new System.Drawing.Point(12, 9);
+			this.NameLbl.Location = new System.Drawing.Point(308, 9);
 			this.NameLbl.Name = "NameLbl";
 			this.NameLbl.Size = new System.Drawing.Size(80, 25);
 			this.NameLbl.TabIndex = 0;
@@ -104,7 +104,7 @@
 			// 
 			// NameBox
 			// 
-			this.NameBox.Location = new System.Drawing.Point(98, 15);
+			this.NameBox.Location = new System.Drawing.Point(128, 15);
 			this.NameBox.Name = "NameBox";
 			this.NameBox.Size = new System.Drawing.Size(165, 20);
 			this.NameBox.TabIndex = 7;
@@ -141,7 +141,7 @@
 			// 
 			this.BirthLbl.AutoSize = true;
 			this.BirthLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.BirthLbl.Location = new System.Drawing.Point(12, 84);
+			this.BirthLbl.Location = new System.Drawing.Point(12, 82);
 			this.BirthLbl.Name = "BirthLbl";
 			this.BirthLbl.Size = new System.Drawing.Size(116, 25);
 			this.BirthLbl.TabIndex = 13;
@@ -149,7 +149,7 @@
 			// 
 			// DateBox
 			// 
-			this.DateBox.Location = new System.Drawing.Point(172, 87);
+			this.DateBox.Location = new System.Drawing.Point(172, 85);
 			this.DateBox.Name = "DateBox";
 			this.DateBox.Size = new System.Drawing.Size(205, 20);
 			this.DateBox.TabIndex = 14;
@@ -164,7 +164,7 @@
 			// 
 			// SurnameBox
 			// 
-			this.SurnameBox.Location = new System.Drawing.Point(394, 15);
+			this.SurnameBox.Location = new System.Drawing.Point(394, 14);
 			this.SurnameBox.Name = "SurnameBox";
 			this.SurnameBox.Size = new System.Drawing.Size(166, 20);
 			this.SurnameBox.TabIndex = 8;
@@ -173,7 +173,7 @@
 			// 
 			this.SurnameLbl.AutoSize = true;
 			this.SurnameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.SurnameLbl.Location = new System.Drawing.Point(278, 9);
+			this.SurnameLbl.Location = new System.Drawing.Point(12, 9);
 			this.SurnameLbl.Name = "SurnameLbl";
 			this.SurnameLbl.Size = new System.Drawing.Size(110, 25);
 			this.SurnameLbl.TabIndex = 1;
