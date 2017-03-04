@@ -24,18 +24,18 @@
 		/// </summary>
 		private void InitializeComponent () {
 			this.ContactsGroupBox = new System.Windows.Forms.GroupBox();
-			this.listView1 = new System.Windows.Forms.ListView();
 			this.AddNewBtn = new System.Windows.Forms.Button();
 			this.ShowMoreBtn = new System.Windows.Forms.Button();
 			this.RemoveBtn = new System.Windows.Forms.Button();
 			this.SearchBtn = new System.Windows.Forms.Button();
 			this.SettingsBtn = new System.Windows.Forms.Button();
+			this.ContactsList = new System.Windows.Forms.ListBox();
 			this.ContactsGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ContactsGroupBox
 			// 
-			this.ContactsGroupBox.Controls.Add(this.listView1);
+			this.ContactsGroupBox.Controls.Add(this.ContactsList);
 			this.ContactsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.ContactsGroupBox.Location = new System.Drawing.Point(12, 12);
 			this.ContactsGroupBox.Name = "ContactsGroupBox";
@@ -43,15 +43,6 @@
 			this.ContactsGroupBox.TabIndex = 0;
 			this.ContactsGroupBox.TabStop = false;
 			this.ContactsGroupBox.Text = "Contacts";
-			// 
-			// listView1
-			// 
-			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1.Location = new System.Drawing.Point(3, 22);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(246, 271);
-			this.listView1.TabIndex = 0;
-			this.listView1.UseCompatibleStateImageBehavior = false;
 			// 
 			// AddNewBtn
 			// 
@@ -100,6 +91,16 @@
 			this.SettingsBtn.Text = "Settings";
 			this.SettingsBtn.UseVisualStyleBackColor = true;
 			// 
+			// ContactsList
+			// 
+			this.ContactsList.FormattingEnabled = true;
+			this.ContactsList.ItemHeight = 20;
+			this.ContactsList.Location = new System.Drawing.Point(7, 22);
+			this.ContactsList.Name = "ContactsList";
+			this.ContactsList.Size = new System.Drawing.Size(239, 264);
+			this.ContactsList.TabIndex = 0;
+			this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,12 +122,12 @@
 		#endregion
 
 		private System.Windows.Forms.GroupBox ContactsGroupBox;
-		private System.Windows.Forms.ListView listView1;
 		private System.Windows.Forms.Button AddNewBtn;
 		private System.Windows.Forms.Button ShowMoreBtn;
 		private System.Windows.Forms.Button RemoveBtn;
 		private System.Windows.Forms.Button SearchBtn;
 		private System.Windows.Forms.Button SettingsBtn;
+		private System.Windows.Forms.ListBox ContactsList;
 	}
 }
 

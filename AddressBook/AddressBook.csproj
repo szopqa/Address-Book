@@ -52,6 +52,12 @@
     <Compile Include="AddNew_form.Designer.cs">
       <DependentUpon>AddNew_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContactInfo_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactInfo_form.Designer.cs">
+      <DependentUpon>ContactInfo_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -64,6 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddNew_form.resx">
       <DependentUpon>AddNew_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactInfo_form.resx">
+      <DependentUpon>ContactInfo_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
