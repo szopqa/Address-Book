@@ -14,8 +14,7 @@ namespace AddressBook {
 		//PROPERTIES
 		private List<People> Contacts = new List<People>();
 		private AddNew_form addWindow = new AddNew_form();
-
-
+		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
 
 
 		public Form1 () {
@@ -26,19 +25,34 @@ namespace AddressBook {
 
 		}
 
+		
 
+
+
+
+		/*Adds new contact to contact list*/
+		private void addNewContactToList(People new_person ) {
+			Contacts.Add(new_person);
+		}
+
+
+
+
+
+
+
+
+		//--------------------BUTTONS MANAGEMENT------------------------
 		private void AddNewBtn_Click ( object sender, EventArgs e ) {
 			this.Hide();
 			addWindow.ShowDialog();
-		}
+			addNewContactToList(addWindow.getPerson());
 
-
-		private void AddNewContactToList(People new_person ) {
-			Contacts.Add(addWindow.Person);
 		}
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
-
+			this.Hide();
+			moreInfoWindow.ShowDialog();
 		}
 
 		private void RemoveBtn_Click( object sender, EventArgs e ) {
@@ -53,6 +67,8 @@ namespace AddressBook {
 
 		}
 
-
+		private void listBox1_SelectedIndexChanged ( object sender, EventArgs e ) {
+			ContactsList.DataSource = Contacts;
+		}
 	}
 }
