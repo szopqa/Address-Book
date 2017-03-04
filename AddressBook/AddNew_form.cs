@@ -18,8 +18,7 @@ namespace AddressBook {
 	public partial class AddNew_form : Form {
 
 
-		public People Person { get; set; }
-
+		private People Person = new People();
 
 
 		public AddNew_form () {
@@ -29,17 +28,26 @@ namespace AddressBook {
 
 		private void AddBtn_Click ( object sender, EventArgs e ) {
 
-			Person.Surname = SurnameBox.Text;
-			Person.Name = NameBox.Text;
-			Person.BirthDate = DateBox.Text;
-			Person.PhoneNumber = PhoneBox.Text;
-			Person.EmailAddress = MailBox.Text;
-			Person.City = CityBox.Text;
-			Person.Address = AddressBox.Text;
-			Person.AditionalInfo = NoteBox.Text;
+			//TODO : Checking if TextBoxes are filled
+			
+				Person.Surname = SurnameBox.Text;
+				Person.Name = NameBox.Text;
+				Person.BirthDate = DateBox.Text;
+				Person.PhoneNumber = PhoneBox.Text;
+				Person.EmailAddress = MailBox.Text;
+				Person.City = CityBox.Text;
+				Person.Address = AddressBox.Text;
+				Person.AditionalInfo = NoteBox.Text;
+
+			//Hiding window
+			this.Hide();
 
 		}
 
+
+		public People getPerson () {
+			return Person;
+		}
 
 	}
 }
