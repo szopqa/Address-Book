@@ -46,11 +46,12 @@
 			// 
 			// ContactsList
 			// 
+			this.ContactsList.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.ContactsList.FormattingEnabled = true;
-			this.ContactsList.ItemHeight = 20;
+			this.ContactsList.ItemHeight = 21;
 			this.ContactsList.Location = new System.Drawing.Point(7, 22);
 			this.ContactsList.Name = "ContactsList";
-			this.ContactsList.Size = new System.Drawing.Size(239, 264);
+			this.ContactsList.Size = new System.Drawing.Size(239, 256);
 			this.ContactsList.TabIndex = 0;
 			this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
 			// 

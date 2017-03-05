@@ -34,8 +34,12 @@ namespace AddressBook {
 			addWindow.ShowDialog();
 			addedSuccessfully = addNewContactToList(addWindow.getPerson());
 
-			if(addedSuccessfully == true)
+			if(addedSuccessfully == true ) {
+
 				showShowcase(Contacts);
+				ContactsList.Items.Add(Contacts.Last().Name);
+
+			}
 		}
 
 
