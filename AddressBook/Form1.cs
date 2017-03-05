@@ -30,6 +30,8 @@ namespace AddressBook {
 		/*Shows only correct contacts != null */
 		private void showShowcase ( List<People> conts ) {
 
+			Console.Clear();
+
 			foreach ( People p in conts ) {
 
 				Console.WriteLine("Name : " + p.Name);
