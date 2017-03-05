@@ -41,6 +41,7 @@ namespace AddressBook {
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
 			//this.Hide();
+			moreInfoWindow.getInfoAboutSelected(Contacts.Last());
 			moreInfoWindow.ShowDialog();
 		}
 
@@ -74,7 +75,6 @@ namespace AddressBook {
 			Console.Clear();
 
 			foreach ( People p in conts ) {
-
 				Console.WriteLine("Name : " + p.Name);
 				Console.WriteLine("Surname : " + p.Surname);
 				Console.WriteLine("Phone n : " + p.PhoneNumber);
@@ -83,7 +83,7 @@ namespace AddressBook {
 				Console.WriteLine("Address: " + p.Address);
 				Console.WriteLine("Add. info : " + p.AdditionalInfo);
 				Console.WriteLine();
-				Console.WriteLine(p.EndOfShowcase);
+				Console.WriteLine(People.EndOfShowcase);
 				Console.WriteLine();
 
 			}

@@ -17,7 +17,7 @@ namespace AddressBook {
 		public string City { get; set; }
 		public string Address { get; set; }
 		public string AdditionalInfo { get; set; } //note or sth
-		public string EndOfShowcase { get; set; } //Every contact will end up with couple of "-" signs
+		public static string EndOfShowcase { get; set; } //Every contact will end up with couple of "-" signs
 		
 
 		/*Default parameters*/
