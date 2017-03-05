@@ -15,7 +15,7 @@ namespace AddressBook {
 		private List<People> Contacts = new List<People>();
 		private AddNew_form addWindow = new AddNew_form();
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
-
+		private bool addedSuccessfully;
 
 		public Form1 () {
 			InitializeComponent();
@@ -27,58 +27,15 @@ namespace AddressBook {
 
 
 
-		/*Shows only correct contacts != null */
-		private void showShowcase ( List<People> conts ) {
-
-			Console.Clear();
-
-			foreach ( People p in conts ) {
-
-				Console.WriteLine("Name : " + p.Name);
-				Console.WriteLine("Surname : " + p.Surname);
-				Console.WriteLine("Phone n : " + p.PhoneNumber);
-				Console.WriteLine("Mail : " + p.EmailAddress);					Console.WriteLine("City : " + p.City);
-				Console.WriteLine("Address: " + p.Address);
-				Console.WriteLine("Add. info : " + p.AdditionalInfo);
-				Console.WriteLine();
-				Console.WriteLine(p.EndOfShowcase);
-				Console.WriteLine();
-
-			}
-
-		}
-
-		
-
-		/*Adds new (correct) contact to contact list*/
-		private void addNewContactToList(People new_person ) {
-
-			if(new_person != null ) {
-
-				Contacts.Add(new_person);
-
-			}
-
-		}
-
-
-
-
-
-		
-
-
-
-
-
-
-
 		//--------------------BUTTONS MANAGEMENT------------------------
+
 		private void AddNewBtn_Click ( object sender, EventArgs e ) {
 			//this.Hide();
 			addWindow.ShowDialog();
-			addNewContactToList(addWindow.getPerson());
-			showShowcase(Contacts);
+			addedSuccessfully = addNewContactToList(addWindow.getPerson());
+
+			if(addedSuccessfully == true)
+				showShowcase(Contacts);
 		}
 
 
@@ -102,5 +59,56 @@ namespace AddressBook {
 		private void listBox1_SelectedIndexChanged ( object sender, EventArgs e ) {
 			ContactsList.DataSource = Contacts;
 		}
+
+		//-------------------END OF BUTTONS MANAGEMENT ------------------
+
+
+
+	
+
+		//-------------------FUNCTIONAL METHODS-------------------------
+
+		/*Shows only correct contacts != null */
+		private void showShowcase ( List<People> conts ) {
+
+			Console.Clear();
+
+			foreach ( People p in conts ) {
+
+				Console.WriteLine("Name : " + p.Name);
+				Console.WriteLine("Surname : " + p.Surname);
+				Console.WriteLine("Phone n : " + p.PhoneNumber);
+				Console.WriteLine("Mail : " + p.EmailAddress);
+				Console.WriteLine("City : " + p.City);
+				Console.WriteLine("Address: " + p.Address);
+				Console.WriteLine("Add. info : " + p.AdditionalInfo);
+				Console.WriteLine();
+				Console.WriteLine(p.EndOfShowcase);
+				Console.WriteLine();
+
+			}
+
+		}
+
+
+
+		/*Adds new (correct - != null) contact to contact list*/
+		private bool addNewContactToList ( People new_person ) {
+
+			if ( new_person != null ) {
+
+				Contacts.Add(new_person);
+				return true;
+
+			}
+
+			else
+				return false;
+		}
+
+
+
+		//----------------END OF FUNCTIONAL METHODS---------------------
+
 	}
 }

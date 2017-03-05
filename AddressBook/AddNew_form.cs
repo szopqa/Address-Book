@@ -27,6 +27,7 @@ namespace AddressBook {
 
 		private void AddNew_form_Load ( object sender, EventArgs e ) {
 			clearAllBoxes();
+			newContact = null;
 		}
 
 
@@ -67,7 +68,7 @@ namespace AddressBook {
 				person.AdditionalInfo = NoteBox.Text;
 
 				newContact = person;
-
+				clearAllBoxes();
 				this.Close();
 
 			}
