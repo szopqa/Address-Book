@@ -27,28 +27,36 @@ namespace AddressBook {
 
 
 
-
-		private void Show ( List<People> conts ) {
+		/*Shows only correct contacts != null */
+		private void showShowcase ( List<People> conts ) {
 
 			foreach ( People p in conts ) {
-				Console.WriteLine(p.Name);
-				Console.WriteLine(p.Surname);
-				Console.WriteLine(p.Address);
-				Console.WriteLine(p.City);
-				Console.WriteLine(p.AdditionalInfo);
+
+				Console.WriteLine("Name : " + p.Name);
+				Console.WriteLine("Surname : " + p.Surname);
+				Console.WriteLine("Phone n : " + p.PhoneNumber);
+				Console.WriteLine("Mail : " + p.EmailAddress);					Console.WriteLine("City : " + p.City);
+				Console.WriteLine("Address: " + p.Address);
+				Console.WriteLine("Add. info : " + p.AdditionalInfo);
+				Console.WriteLine();
+				Console.WriteLine(p.EndOfShowcase);
+				Console.WriteLine();
+
 			}
 
 		}
 
+		
 
-
-
-
-
-
-		/*Adds new contact to contact list*/
+		/*Adds new (correct) contact to contact list*/
 		private void addNewContactToList(People new_person ) {
-			Contacts.Add(new_person);
+
+			if(new_person != null ) {
+
+				Contacts.Add(new_person);
+
+			}
+
 		}
 
 
@@ -68,7 +76,7 @@ namespace AddressBook {
 			//this.Hide();
 			addWindow.ShowDialog();
 			addNewContactToList(addWindow.getPerson());
-			Show(Contacts);
+			showShowcase(Contacts);
 		}
 
 
