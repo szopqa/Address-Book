@@ -14,7 +14,7 @@ namespace AddressBook {
 		public string EmailAddress { get; set; }
 		public string City { get; set; }
 		public string Address { get; set; }
-		public string AditionalInfo { get; set; } //note or sth
+		public string AdditionalInfo { get; set; } //note or sth
 
 
 

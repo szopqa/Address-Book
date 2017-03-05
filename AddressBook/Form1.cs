@@ -44,9 +44,21 @@ namespace AddressBook {
 
 		//--------------------BUTTONS MANAGEMENT------------------------
 		private void AddNewBtn_Click ( object sender, EventArgs e ) {
-			this.Hide();
+			//this.Hide();
 			addWindow.ShowDialog();
 			addNewContactToList(addWindow.getPerson());
+			Show(Contacts);
+		}
+
+		private void Show(List<People> conts ) {
+
+			foreach ( People p in conts ) {
+				Console.WriteLine(p.Name);
+				Console.WriteLine(p.Surname);
+				Console.WriteLine(p.Address);
+				Console.WriteLine(p.City);
+				Console.WriteLine(p.AdditionalInfo);
+			}
 
 		}
 
