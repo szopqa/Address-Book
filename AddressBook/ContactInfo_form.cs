@@ -18,12 +18,16 @@ namespace AddressBook {
 
 
 		private void showInfoAboutSelected(People person ) {
-			
+
 			//TODO: Or if contact is not selected find contact inside, and then show more info
 			//Idea: Search button disabled when user selected contact from list, enabled if not
 
+			NameHeader.Text = person.Name + " " + person.Surname;
+
 		}
 
-		
+		private void backButton_Click ( object sender, EventArgs e ) {
+			this.Hide();
+		}
 	}
 }
