@@ -39,7 +39,6 @@ namespace AddressBook {
 
 
 
-
 		private void AddBtn_Click ( object sender, EventArgs e ) {
 
 			People Person = new People();
@@ -53,7 +52,10 @@ namespace AddressBook {
 				Person.Address = AddressBox.Text;
 				Person.AdditionalInfo = NoteBox.Text;
 
+
 			newContact = Person;
+
+			People.ID++;	
 
 			//TODO: Checking if filled correctly
 
