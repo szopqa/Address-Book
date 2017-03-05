@@ -25,9 +25,57 @@ namespace AddressBook {
 		}
 
 
-
-
 		private void AddNew_form_Load ( object sender, EventArgs e ) {
+			clearAllBoxes();
+		}
+
+
+
+
+
+
+		/* 
+		 * Name, Phone number: 
+		 * Those two parameters have to be filled to create a new contact
+		 * 
+		 * Sets newContact object as null if values are incorrect
+		 */
+		private void AddBtn_Click ( object sender, EventArgs e ) {
+
+			if(	string.IsNullOrWhiteSpace(NameBox.Text) 
+				||
+				string.IsNullOrWhiteSpace(SurnameBox.Text) 
+				&& 
+				string.IsNullOrWhiteSpace(PhoneBox.Text) ) {
+
+				newContact = null;
+				MessageBox.Show("\"Name\" and \"Phone number\" fields have to be filled!");
+				clearAllBoxes();
+
+			}
+			else {
+
+				People person = new People();
+
+				person.Surname = SurnameBox.Text;
+				person.Name = NameBox.Text;
+				person.BirthDate = DateBox.Text;
+				person.PhoneNumber = PhoneBox.Text;
+				person.EmailAddress = MailBox.Text;
+				person.City = CityBox.Text;
+				person.Address = AddressBox.Text;
+				person.AdditionalInfo = NoteBox.Text;
+
+				newContact = person;
+
+				this.Close();
+
+			}
+
+		}
+
+		/*Clears all TextBoxes */
+		private void clearAllBoxes () {
 			SurnameBox.Clear();
 			NameBox.Clear();
 			PhoneBox.Clear();
@@ -36,77 +84,12 @@ namespace AddressBook {
 			AddressBox.Clear();
 			NoteBox.Clear();
 		}
-
-
-
-		private void AddBtn_Click ( object sender, EventArgs e ) {
-
-			People Person = new People();
-
-				Person.Surname = SurnameBox.Text;
-				Person.Name = NameBox.Text;
-				Person.BirthDate = DateBox.Text;
-				Person.PhoneNumber = PhoneBox.Text;
-				Person.EmailAddress = MailBox.Text;
-				Person.City = CityBox.Text;
-				Person.Address = AddressBox.Text;
-				Person.AdditionalInfo = NoteBox.Text;
-
-
-			newContact = Person;
-
-			People.ID++;	
-
-			//TODO: Checking if filled correctly
-
-
-			/* First idea to check if all boxes are filled
-			 
 		
-			foreach(Control c in this.Controls ) {
-				if(c is TextBox ) {
-					TextBox textBox = c as TextBox;
-
-					if (textBox.Text == string.Empty && textBox.Name != "NoteBox" ) {
-						MessageBox.Show("Insert all Data!");
-						this.Refresh();
-					}
-
-					else if(textBox.Text == string.Empty && textBox.Name == "NoteBox" ) {
-						NoteBox.Text = "No additional info\n";
-					}
-
-					else {
-						newContact = Person;
-					}
-				}
-			}
-
-
-			*/
-
-
-			this.Close();
-		}
-
-		/*Second idea to check if filled correctly*/
-		private void CheckIfFilledCorectly(People per ) {
-
-			foreach(var prop in per.GetType().GetProperties() ) {
-				if(prop.GetValue(per) == string.Empty ) {
-					Console.WriteLine("Empty!!!!");
-					this.newContact = null;
-				}
-				else {
-					this.newContact = per;
-				}
-			}
-
-		}
-
-
+		/*Returns null if user filled boxes wrong*/
 		public People getPerson () {
+
 			return newContact;
+
 		}
 
 	}
