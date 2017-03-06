@@ -19,6 +19,7 @@ namespace AddressBook {
 
 
 		private People newContact = new People();
+		private DataManager data = new DataManager();
 
 		public AddNew_form () {
 			InitializeComponent();
@@ -69,6 +70,15 @@ namespace AddressBook {
 				person.AdditionalInfo = NoteBox.Text;
 
 				newContact = person;
+
+				try {
+
+					data.saveToXML(person);
+
+				}catch(Exception ex ) {
+					MessageBox.Show(ex.Message);
+				}
+
 				clearAllBoxes();
 				this.Close();
 

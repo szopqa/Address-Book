@@ -107,35 +107,35 @@
 			this.NameBox.Location = new System.Drawing.Point(394, 15);
 			this.NameBox.Name = "NameBox";
 			this.NameBox.Size = new System.Drawing.Size(165, 20);
-			this.NameBox.TabIndex = 7;
+			this.NameBox.TabIndex = 1;
 			// 
 			// PhoneBox
 			// 
 			this.PhoneBox.Location = new System.Drawing.Point(172, 50);
 			this.PhoneBox.Name = "PhoneBox";
 			this.PhoneBox.Size = new System.Drawing.Size(205, 20);
-			this.PhoneBox.TabIndex = 9;
+			this.PhoneBox.TabIndex = 3;
 			// 
 			// MailBox
 			// 
 			this.MailBox.Location = new System.Drawing.Point(172, 126);
 			this.MailBox.Name = "MailBox";
 			this.MailBox.Size = new System.Drawing.Size(205, 20);
-			this.MailBox.TabIndex = 10;
+			this.MailBox.TabIndex = 4;
 			// 
 			// CityBox
 			// 
 			this.CityBox.Location = new System.Drawing.Point(98, 163);
 			this.CityBox.Name = "CityBox";
 			this.CityBox.Size = new System.Drawing.Size(165, 20);
-			this.CityBox.TabIndex = 11;
+			this.CityBox.TabIndex = 5;
 			// 
 			// AddressBox
 			// 
 			this.AddressBox.Location = new System.Drawing.Point(394, 161);
 			this.AddressBox.Name = "AddressBox";
 			this.AddressBox.Size = new System.Drawing.Size(166, 20);
-			this.AddressBox.TabIndex = 12;
+			this.AddressBox.TabIndex = 6;
 			// 
 			// BirthLbl
 			// 
@@ -152,7 +152,7 @@
 			this.DateBox.Location = new System.Drawing.Point(172, 85);
 			this.DateBox.Name = "DateBox";
 			this.DateBox.Size = new System.Drawing.Size(205, 20);
-			this.DateBox.TabIndex = 14;
+			this.DateBox.TabIndex = 8;
 			// 
 			// NoteBox
 			// 
@@ -160,14 +160,14 @@
 			this.NoteBox.Multiline = true;
 			this.NoteBox.Name = "NoteBox";
 			this.NoteBox.Size = new System.Drawing.Size(388, 59);
-			this.NoteBox.TabIndex = 15;
+			this.NoteBox.TabIndex = 7;
 			// 
 			// SurnameBox
 			// 
 			this.SurnameBox.Location = new System.Drawing.Point(128, 15);
 			this.SurnameBox.Name = "SurnameBox";
 			this.SurnameBox.Size = new System.Drawing.Size(166, 20);
-			this.SurnameBox.TabIndex = 8;
+			this.SurnameBox.TabIndex = 2;
 			// 
 			// SurnameLbl
 			// 
@@ -215,7 +215,7 @@
 			this.Controls.Add(this.NameLbl);
 			this.Name = "AddNew_form";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "AddNewForm";
+			this.Text = "1";
 			this.Load += new System.EventHandler(this.AddNew_form_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
