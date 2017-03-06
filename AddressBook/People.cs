@@ -11,6 +11,7 @@ namespace AddressBook {
 		public static int ID { get; set; }
 		public string Surname { get; set; }
 		public string Name { get; set; }
+		public string FullName { get; set; } //Name + Surname, need that to show in contacts list
 		public string BirthDate { get; set; }
 		public string PhoneNumber { get; set; }
 		public string EmailAddress { get; set; }
@@ -19,7 +20,6 @@ namespace AddressBook {
 		public string AdditionalInfo { get; set; } //note or sth
 		public static string EndOfShowcase { get; set; } //Every contact will end up with couple of "-" signs
 		
-
 		/*Default parameters*/
 		public People () {
 
