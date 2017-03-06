@@ -13,16 +13,19 @@ namespace AddressBook {
 
 		//PROPERTIES
 		private List<People> Contacts = new List<People>();
-		private AddNew_form addWindow = new AddNew_form();
+		private AddNew_form addWindow = new AddNew_form ();
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
 		private bool addedSuccessfully;
 
 		public Form1 () {
-			InitializeComponent();
 
+			InitializeComponent();
+			
+		}
+
+		private void Form1_Load ( object sender, EventArgs e ) {
 			//TODO: Load contacts from file to Contacts List
 			//TODO: Sort them by Surname's first letter
-
 		}
 
 
@@ -37,15 +40,13 @@ namespace AddressBook {
 			if(addedSuccessfully == true ) {
 
 				showShowcase(Contacts);
-				ContactsList.Items.Add(Contacts.Last().Name);
+				updateContactsList();
 
 			}
 		}
 
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
-			//this.Hide();
-			moreInfoWindow.getInfoAboutSelected(Contacts.Last());
 			moreInfoWindow.ShowDialog();
 		}
 
@@ -61,15 +62,59 @@ namespace AddressBook {
 
 		}
 
+
+		
+		/*	Handles item select
+		 *	Getting FullName property, to select appropriate object
+		 */
 		private void listBox1_SelectedIndexChanged ( object sender, EventArgs e ) {
-			ContactsList.DataSource = Contacts;
+
+			//ISSUE: It wont work if there will be two contacts with same name and surname
+			//TODO: Have to create unique id for every contact
+
+			People selectedContact = new People();
+			
+			
+
+			string fullNameOfSelected= ContactsList.SelectedItem.ToString();
+
+			foreach(People contact in Contacts ) {
+
+
+
+				if ( contact.FullName.Equals(fullNameOfSelected) ) {
+					selectedContact = contact;
+				}
+
+			}
+			
+
+			//passing selected object
+			moreInfoWindow.getInfoAboutSelected(selectedContact);
+
+
+					/*
+					var selectedContact = ContactsList.SelectedItem as People;
+
+					People fittingContact = new People();
+
+					foreach(People contact in Contacts ) {
+						if ( contact.ID.Equals(selectedContact.ID) ) {
+							fittingContact = contact;
+						}
+					}
+
+					moreInfoWindow.getInfoAboutSelected(fittingContact);
+					*/
+
 		}
 
-		//-------------------END OF BUTTONS MANAGEMENT ------------------
 
 
 
-	
+
+
+
 
 		//-------------------FUNCTIONAL METHODS-------------------------
 
@@ -79,6 +124,7 @@ namespace AddressBook {
 			Console.Clear();
 
 			foreach ( People p in conts ) {
+				Console.WriteLine("ID : " + p.ID);
 				Console.WriteLine("Name : " + p.Name);
 				Console.WriteLine("Surname : " + p.Surname);
 				Console.WriteLine("Phone n : " + p.PhoneNumber);
@@ -94,6 +140,18 @@ namespace AddressBook {
 
 		}
 
+		/*Clears whole list every time user adds new contact. TODO: change */
+		private void updateContactsList () {
+
+			ContactsList.Items.Clear();
+
+			foreach (People person in Contacts ) {
+
+				ContactsList.Items.Add(person.FullName);
+
+			}
+			
+		}
 
 
 		/*Adds new (correct - != null) contact to contact list*/
@@ -111,6 +169,14 @@ namespace AddressBook {
 		}
 
 
+		/*Returns an object with selected parameters*/
+		private People reachSelectedContact () {
+			
+			return null;
+
+		}
+
+		
 
 		//----------------END OF FUNCTIONAL METHODS---------------------
 
