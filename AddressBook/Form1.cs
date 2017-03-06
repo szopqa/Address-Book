@@ -73,10 +73,16 @@ namespace AddressBook {
 			//TODO: Have to create unique id for every contact
 
 			People selectedContact = new People();
-			
-			
 
-			string fullNameOfSelected= ContactsList.SelectedItem.ToString();
+			string fullNameOfSelected =" ";
+
+			try {
+
+				fullNameOfSelected = ContactsList.SelectedItem.ToString();
+
+			}catch(NullReferenceException) {
+				MessageBox.Show("Select contact");
+			}
 
 			foreach(People contact in Contacts ) {
 
