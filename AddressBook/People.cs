@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace AddressBook {
 	public class People {
 
+		/*Number of all contacts created*/
+		public static int Amount { get; set; }
 
-		public static int ID { get; set; }
+		public int ID { get; set; }
 		public string Surname { get; set; }
 		public string Name { get; set; }
 		public string FullName { get; set; } //Name + Surname, need that to show in contacts list
@@ -24,8 +26,8 @@ namespace AddressBook {
 		public People () {
 
 			//TODO: Birth date handle
-
-			ID++;
+			Amount++;
+			ID = Amount;	//setting unique id for every new object
 			Surname = " ";
 			Name = " ";
 			BirthDate = " ";
