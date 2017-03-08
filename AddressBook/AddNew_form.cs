@@ -18,8 +18,7 @@ namespace AddressBook {
 	public partial class AddNew_form : Form {
 
 
-		private People newContact = new People();
-		private DataManager data = new DataManager();
+		private People newContact = new People();	
 
 		public AddNew_form () {
 			InitializeComponent();
@@ -55,6 +54,16 @@ namespace AddressBook {
 				clearAllBoxes();
 
 			}
+			else if(isNumeric(PhoneBox.Text) == false){
+
+				MessageBox.Show("Insert correct phone number!");
+
+			}
+			else if(isMailCorrect( MailBox.Text ) == false ) {
+
+				MessageBox.Show("Insert correct mail address");
+
+			}
 			else {
 
 				People person = new People();
@@ -71,20 +80,34 @@ namespace AddressBook {
 
 				newContact = person;
 
-				try {
-
-					data.saveToXML(person);
-
-				}catch(Exception ex ) {
-					MessageBox.Show(ex.Message);
-				}
-
+				
 				clearAllBoxes();
 				this.Close();
 
 			}
 
 		}
+
+		private bool isMailCorrect (string strTyped) {
+
+			bool isCorrect = strTyped.Contains("@");
+
+			return isCorrect;
+
+		}
+
+
+		/*Checks if user typed phone number as string numbers*/
+		private bool isNumeric (string strTyped) {
+
+			double PhoneNumber;
+
+			bool isNum = Double.TryParse(strTyped, out PhoneNumber);
+
+			return isNum;
+		}
+
+
 
 		/*Clears all TextBoxes */
 		private void clearAllBoxes () {
