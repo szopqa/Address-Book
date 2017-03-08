@@ -75,7 +75,7 @@ namespace AddressBook {
 
 				person.Surname = SurnameBox.Text;
 				person.Name = NameBox.Text;
-				person.FullName = NameBox.Text + " " + SurnameBox.Text;
+				person.FullName = SurnameBox.Text + " " +  NameBox.Text;
 				person.BirthDate = DateBox.Text;
 				person.PhoneNumber = PhoneBox.Text;
 				person.EmailAddress = MailBox.Text;
