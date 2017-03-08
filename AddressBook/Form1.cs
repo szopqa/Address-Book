@@ -34,8 +34,8 @@ namespace AddressBook {
 
 			updateContactsList();
 
-			//data.loadContactsFromXml();
 			//TODO: Sort them by Surname's first letter
+
 		}
 
 
@@ -157,17 +157,29 @@ namespace AddressBook {
 
 		}
 
-		/*Clears whole list every time user adds new contact. TODO: change */
+		/*Refreshes list, sorts contacts by their surname*/
 		private void updateContactsList () {
 
 			ContactsList.Items.Clear();
+
+
+			//Sort List by Surname's first letter
+			sortContactsInList(ref Contacts);
+
 
 			foreach (People person in Contacts ) {
 
 				ContactsList.Items.Add(person.FullName);
 
 			}
-			
+
+		}
+
+
+		private void sortContactsInList (ref List<People> listToSort) {
+
+			listToSort = listToSort.OrderBy(t => t.Surname).ToList();		
+				
 		}
 
 
@@ -184,15 +196,6 @@ namespace AddressBook {
 			else
 				return false;
 		}
-
-
-		/*Returns an object with selected parameters*/
-		private People reachSelectedContact () {
-			
-			return null;
-
-		}
-
 		
 
 		//----------------END OF FUNCTIONAL METHODS---------------------
