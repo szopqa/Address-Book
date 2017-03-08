@@ -42,28 +42,33 @@ namespace AddressBook {
 		 * Sets newContact object as null if values are incorrect
 		 */
 		private void AddBtn_Click ( object sender, EventArgs e ) {
+			
+			/*Name and Phone Number fields have to be passed to create new contact*/
+			bool isPhoneNumberEmpty = string.IsNullOrWhiteSpace(PhoneBox.Text);
+			bool isNameEmpty = string.IsNullOrWhiteSpace(NameBox.Text);
+			bool isSurnameEmpty = string.IsNullOrWhiteSpace(SurnameBox.Text);
 
-			if(	string.IsNullOrWhiteSpace(NameBox.Text) 
-				||
-				string.IsNullOrWhiteSpace(SurnameBox.Text) 
-				&& 
-				string.IsNullOrWhiteSpace(PhoneBox.Text) ) {
+
+			if ( isPhoneNumberEmpty == true || isNameEmpty == true ) {
 
 				newContact = null;
 				MessageBox.Show("\"Name\" and \"Phone number\" fields have to be filled!");
 				clearAllBoxes();
 
 			}
-			else if(isNumeric(PhoneBox.Text) == false){
 
-				MessageBox.Show("Insert correct phone number!");
-
+			else if ( !isNumeric(PhoneBox.Text) ) {
+				MessageBox.Show("Type correct phone number!");
+				newContact = null;
+				PhoneBox.Clear();
 			}
-			else if(isMailCorrect( MailBox.Text ) == false ) {
 
-				MessageBox.Show("Insert correct mail address");
-
+			else if ( !isMailCorrect(MailBox.Text) ) {
+				MessageBox.Show("Type correct Email Address!");
+				newContact = null;
+				MailBox.Clear();
 			}
+
 			else {
 
 				People person = new People();
@@ -80,7 +85,6 @@ namespace AddressBook {
 
 				newContact = person;
 
-				
 				clearAllBoxes();
 				this.Close();
 
@@ -92,7 +96,7 @@ namespace AddressBook {
 
 			bool isCorrect = false;
 
-			if(strTyped.Contains(".") && strTyped.Contains("@") ) {
+			if(strTyped.Contains(".") && strTyped.Contains("@") || string.IsNullOrWhiteSpace(strTyped)) {
 				isCorrect = true;
 			}
 
@@ -104,14 +108,42 @@ namespace AddressBook {
 		/*Checks if user typed phone number as string numbers*/
 		private bool isNumeric (string strTyped) {
 
-			//TODO: Let number contain + sign
-			
 
+			bool isNum = false;
+			bool hadPlusSign = false;
+
+
+			if ( strTyped.Contains("+") ) {
+
+				int count = strTyped.Count(t => t == '+');
+				
+				if(count > 1 ) {
+
+					return false;
+
+				}else {
+					strTyped = strTyped.Replace("+", string.Empty);
+					hadPlusSign = true;
+				}
+
+			}
+
+			//Checking if string without + is a number
 			double PhoneNumber;
+			isNum = Double.TryParse(strTyped, out PhoneNumber);
 
-			bool isNum = Double.TryParse(strTyped, out PhoneNumber);
+			if(isNum == true && hadPlusSign == false ) {
+				return true;
+			}
 
-			return isNum;
+			else if(isNum== true && hadPlusSign == true ) {
+				return true;
+			}
+
+			else {
+				return false;
+			}
+
 		}
 
 
