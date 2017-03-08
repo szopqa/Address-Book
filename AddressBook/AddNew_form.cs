@@ -47,7 +47,7 @@ namespace AddressBook {
 				||
 				string.IsNullOrWhiteSpace(SurnameBox.Text) 
 				&& 
-				string.IsNullOrWhiteSpace(PhoneBox.Tex	t) ) {
+				string.IsNullOrWhiteSpace(PhoneBox.Text) ) {
 
 				newContact = null;
 				MessageBox.Show("\"Name\" and \"Phone number\" fields have to be filled!");
@@ -90,7 +90,11 @@ namespace AddressBook {
 
 		private bool isMailCorrect (string strTyped) {
 
-			bool isCorrect = strTyped.Contains("@");
+			bool isCorrect = false;
+
+			if(strTyped.Contains(".") && strTyped.Contains("@") ) {
+				isCorrect = true;
+			}
 
 			return isCorrect;
 
