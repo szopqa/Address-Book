@@ -107,7 +107,7 @@
 			this.NameBox.Location = new System.Drawing.Point(394, 15);
 			this.NameBox.Name = "NameBox";
 			this.NameBox.Size = new System.Drawing.Size(165, 20);
-			this.NameBox.TabIndex = 1;
+			this.NameBox.TabIndex = 2;
 			// 
 			// PhoneBox
 			// 
@@ -167,7 +167,7 @@
 			this.SurnameBox.Location = new System.Drawing.Point(128, 15);
 			this.SurnameBox.Name = "SurnameBox";
 			this.SurnameBox.Size = new System.Drawing.Size(166, 20);
-			this.SurnameBox.TabIndex = 2;
+			this.SurnameBox.TabIndex = 1;
 			// 
 			// SurnameLbl
 			// 

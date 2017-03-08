@@ -47,7 +47,7 @@ namespace AddressBook {
 				||
 				string.IsNullOrWhiteSpace(SurnameBox.Text) 
 				&& 
-				string.IsNullOrWhiteSpace(PhoneBox.Text) ) {
+				string.IsNullOrWhiteSpace(PhoneBox.Tex	t) ) {
 
 				newContact = null;
 				MessageBox.Show("\"Name\" and \"Phone number\" fields have to be filled!");
