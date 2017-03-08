@@ -49,7 +49,6 @@ namespace AddressBook {
 
 			if(addedSuccessfully == true ) {
 
-				showShowcase(Contacts);
 				updateContactsList();
 				data.saveContactsToXML(Contacts);
 
@@ -134,28 +133,6 @@ namespace AddressBook {
 
 
 		//-------------------FUNCTIONAL METHODS-------------------------
-
-		/*Shows only correct contacts != null */
-		private void showShowcase ( List<People> conts ) {
-
-			Console.Clear();
-
-			foreach ( People p in conts ) {
-				Console.WriteLine("ID : " + p.ID);
-				Console.WriteLine("Name : " + p.Name);
-				Console.WriteLine("Surname : " + p.Surname);
-				Console.WriteLine("Phone n : " + p.PhoneNumber);
-				Console.WriteLine("Mail : " + p.EmailAddress);
-				Console.WriteLine("City : " + p.City);
-				Console.WriteLine("Address: " + p.Address);
-				Console.WriteLine("Add. info : " + p.AdditionalInfo);
-				Console.WriteLine();
-				Console.WriteLine(People.EndOfShowcase);
-				Console.WriteLine();
-
-			}
-
-		}
 
 		/*Refreshes list, sorts contacts by their surname*/
 		private void updateContactsList () {
