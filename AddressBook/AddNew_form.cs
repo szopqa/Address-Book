@@ -104,6 +104,9 @@ namespace AddressBook {
 		/*Checks if user typed phone number as string numbers*/
 		private bool isNumeric (string strTyped) {
 
+			//TODO: Let number contain + sign
+			
+
 			double PhoneNumber;
 
 			bool isNum = Double.TryParse(strTyped, out PhoneNumber);

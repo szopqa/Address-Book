@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace AddressBook {
 		private List<People> Contacts = new List<People>();
 		private AddNew_form addWindow = new AddNew_form ();
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
+		private DataManager data = new DataManager ();
 		private bool addedSuccessfully;
 
 		public Form1 () {
@@ -24,7 +26,15 @@ namespace AddressBook {
 		}
 
 		private void Form1_Load ( object sender, EventArgs e ) {
-			//TODO: Load contacts from file to Contacts List
+
+			data.createDataFolder();
+			data.checkIfContsXmlExists();
+
+			Contacts = data.loadContactsFromXml();
+
+			updateContactsList();
+
+			//data.loadContactsFromXml();
 			//TODO: Sort them by Surname's first letter
 		}
 
@@ -41,6 +51,7 @@ namespace AddressBook {
 
 				showShowcase(Contacts);
 				updateContactsList();
+				data.saveContactsToXML(Contacts);
 
 			}
 		}
