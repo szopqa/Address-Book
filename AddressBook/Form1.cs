@@ -29,12 +29,11 @@ namespace AddressBook {
 
 			data.createDataFolder();
 			data.checkIfContsXmlExists();
-
+	
+			//Onload loads all contacts from XML datafile
 			Contacts = data.loadContactsFromXml();
 
 			updateContactsList();
-
-			//TODO: Sort them by Surname's first letter
 
 		}
 
@@ -43,6 +42,7 @@ namespace AddressBook {
 		//--------------------BUTTONS MANAGEMENT------------------------
 
 		private void AddNewBtn_Click ( object sender, EventArgs e ) {
+			
 			//this.Hide();
 			addWindow.ShowDialog();
 			addedSuccessfully = addNewContactToList(addWindow.getPerson());
@@ -53,18 +53,59 @@ namespace AddressBook {
 				data.saveContactsToXML(Contacts);
 
 			}
+
+
 		}
 
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
+
 			moreInfoWindow.ShowDialog();
+
 		}
 
 		private void RemoveBtn_Click( object sender, EventArgs e ) {
 
+
+
 		}
 
+		/*Shows "Search" button when user type something*/
+		private void searchBox_TextChanged ( object sender, EventArgs e ) {
+
+			if ( !string.IsNullOrWhiteSpace(searchBox.Text) ) {
+
+				SearchBtn.Visible = true;
+
+			}else {
+
+				updateContactsList();
+				SearchBtn.Visible = false;
+
+			}
+
+		}
+
+
+		private void ContactsList_MouseDoubleClick (object sender, MouseEventArgs e) {
+
+			//TODO : Doubleckick will show more info about contact
+			
+		}
+
+
 		private void SearchBtn_Click( object sender, EventArgs e ) {
+
+			string textTyped = searchBox.Text;
+
+			//Looking for proper contact
+			var contactsFound = Contacts.Where(	c => c.Name.ToLower().Contains(textTyped.ToLower())
+													|| c.Surname.ToLower().Contains(textTyped.ToLower())
+													|| c.PhoneNumber.ToLower().Contains(textTyped.ToLower()) );
+
+
+			updateContactsListAfterSearch(contactsFound);
+					
 
 		}
 
@@ -96,33 +137,16 @@ namespace AddressBook {
 
 			foreach(People contact in Contacts ) {
 
-
-
 				if ( contact.FullName.Equals(fullNameOfSelected) ) {
 					selectedContact = contact;
 				}
-
+				
 			}
 			
 
 			//passing selected object
 			moreInfoWindow.getInfoAboutSelected(selectedContact);
-
-
-					/*
-					var selectedContact = ContactsList.SelectedItem as People;
-
-					People fittingContact = new People();
-
-					foreach(People contact in Contacts ) {
-						if ( contact.ID.Equals(selectedContact.ID) ) {
-							fittingContact = contact;
-						}
-					}
-
-					moreInfoWindow.getInfoAboutSelected(fittingContact);
-					*/
-
+			
 		}
 
 
@@ -152,6 +176,35 @@ namespace AddressBook {
 
 		}
 
+		/*Updates contact list after searching*/
+		private void updateContactsListAfterSearch (IEnumerable<People> found) {
+
+
+			ContactsList.Items.Clear();
+
+
+			if(found.Count() == 0 ) {
+
+				ContactsList.Items.Add("Not found");
+
+			}else {
+
+				List<People> contactsFound = found.ToList();
+
+
+				sortContactsInList(ref contactsFound);
+
+				foreach ( People person in contactsFound ) {
+
+					ContactsList.Items.Add(person.FullName);
+
+				}
+				
+			}
+
+
+
+		}
 
 		private void sortContactsInList (ref List<People> listToSort) {
 
@@ -173,7 +226,7 @@ namespace AddressBook {
 			else
 				return false;
 		}
-		
+
 
 		//----------------END OF FUNCTIONAL METHODS---------------------
 
