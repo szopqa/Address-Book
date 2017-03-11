@@ -55,7 +55,7 @@ namespace AddressBook {
 		}
 
 		private void backButton_Click ( object sender, EventArgs e ) {
-			this.Hide();
+			this.Close();
 		}
 
 		
