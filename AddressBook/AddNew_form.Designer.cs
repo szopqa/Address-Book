@@ -224,22 +224,22 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label NameLbl;
-		private System.Windows.Forms.Label PhoneNumLbl;
-		private System.Windows.Forms.Label EmailLbl;
-		private System.Windows.Forms.Label CityLbl;
-		private System.Windows.Forms.Label AddressLbl;
-		private System.Windows.Forms.Label NoteLbl;
-		private System.Windows.Forms.TextBox NameBox;
-		private System.Windows.Forms.TextBox PhoneBox;
-		private System.Windows.Forms.TextBox MailBox;
-		private System.Windows.Forms.TextBox CityBox;
-		private System.Windows.Forms.TextBox AddressBox;
-		private System.Windows.Forms.Label BirthLbl;
-		private System.Windows.Forms.DateTimePicker DateBox;
-		private System.Windows.Forms.TextBox NoteBox;
-		private System.Windows.Forms.TextBox SurnameBox;
-		private System.Windows.Forms.Label SurnameLbl;
-		private System.Windows.Forms.Button AddBtn;
+		protected System.Windows.Forms.Label NameLbl;
+		protected System.Windows.Forms.Label PhoneNumLbl;
+		protected System.Windows.Forms.Label EmailLbl;
+		protected System.Windows.Forms.Label CityLbl;
+		protected System.Windows.Forms.Label AddressLbl;
+		protected System.Windows.Forms.Label NoteLbl;
+		protected System.Windows.Forms.TextBox NameBox;
+		protected System.Windows.Forms.TextBox PhoneBox;
+		protected System.Windows.Forms.TextBox MailBox;
+		protected System.Windows.Forms.TextBox CityBox;
+		protected System.Windows.Forms.TextBox AddressBox;
+		protected System.Windows.Forms.Label BirthLbl;
+		protected System.Windows.Forms.DateTimePicker DateBox;
+		protected System.Windows.Forms.TextBox NoteBox;
+		protected System.Windows.Forms.TextBox SurnameBox;
+		protected System.Windows.Forms.Label SurnameLbl;
+		protected System.Windows.Forms.Button AddBtn;
 	}
 }

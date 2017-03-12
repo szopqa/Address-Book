@@ -41,7 +41,7 @@ namespace AddressBook {
 		 * 
 		 * Sets newContact object as null if values are incorrect
 		 */
-		private void AddBtn_Click ( object sender, EventArgs e ) {
+		virtual protected void AddBtn_Click ( object sender, EventArgs e ) {
 			
 			/*Name and Phone Number fields have to be passed to create new contact*/
 			bool isPhoneNumberEmpty = string.IsNullOrWhiteSpace(PhoneBox.Text);
@@ -92,7 +92,7 @@ namespace AddressBook {
 
 		}
 
-		private bool isMailCorrect (string strTyped) {
+		protected bool isMailCorrect (string strTyped) {
 
 			bool isCorrect = false;
 
@@ -106,7 +106,7 @@ namespace AddressBook {
 
 
 		/*Checks if user typed phone number as string numbers*/
-		private bool isNumeric (string strTyped) {
+		protected bool isNumeric (string strTyped) {
 
 
 			bool isNum = false;
@@ -149,7 +149,7 @@ namespace AddressBook {
 
 
 		/*Clears all TextBoxes */
-		private void clearAllBoxes () {
+		protected void clearAllBoxes () {
 			SurnameBox.Clear();
 			NameBox.Clear();
 			PhoneBox.Clear();

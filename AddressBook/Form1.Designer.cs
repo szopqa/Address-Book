@@ -31,6 +31,7 @@
 			this.SearchBtn = new System.Windows.Forms.Button();
 			this.SettingsBtn = new System.Windows.Forms.Button();
 			this.searchBox = new System.Windows.Forms.TextBox();
+			this.editBtn = new System.Windows.Forms.Button();
 			this.ContactsGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -58,7 +59,7 @@
 			// 
 			// AddNewBtn
 			// 
-			this.AddNewBtn.Location = new System.Drawing.Point(341, 91);
+			this.AddNewBtn.Location = new System.Drawing.Point(341, 98);
 			this.AddNewBtn.Name = "AddNewBtn";
 			this.AddNewBtn.Size = new System.Drawing.Size(150, 40);
 			this.AddNewBtn.TabIndex = 1;
@@ -68,7 +69,7 @@
 			// 
 			// ShowMoreBtn
 			// 
-			this.ShowMoreBtn.Location = new System.Drawing.Point(341, 165);
+			this.ShowMoreBtn.Location = new System.Drawing.Point(341, 156);
 			this.ShowMoreBtn.Name = "ShowMoreBtn";
 			this.ShowMoreBtn.Size = new System.Drawing.Size(150, 40);
 			this.ShowMoreBtn.TabIndex = 2;
@@ -78,7 +79,7 @@
 			// 
 			// RemoveBtn
 			// 
-			this.RemoveBtn.Location = new System.Drawing.Point(341, 240);
+			this.RemoveBtn.Location = new System.Drawing.Point(341, 270);
 			this.RemoveBtn.Name = "RemoveBtn";
 			this.RemoveBtn.Size = new System.Drawing.Size(150, 40);
 			this.RemoveBtn.TabIndex = 3;
@@ -114,11 +115,22 @@
 			this.searchBox.TabIndex = 6;
 			this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
 			// 
+			// editBtn
+			// 
+			this.editBtn.Location = new System.Drawing.Point(341, 214);
+			this.editBtn.Name = "editBtn";
+			this.editBtn.Size = new System.Drawing.Size(150, 39);
+			this.editBtn.TabIndex = 7;
+			this.editBtn.Text = "Edit contact";
+			this.editBtn.UseVisualStyleBackColor = true;
+			this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(565, 326);
+			this.Controls.Add(this.editBtn);
 			this.Controls.Add(this.searchBox);
 			this.Controls.Add(this.SettingsBtn);
 			this.Controls.Add(this.SearchBtn);
@@ -146,6 +158,7 @@
 		private System.Windows.Forms.Button SettingsBtn;
 		private System.Windows.Forms.ListBox ContactsList;
 		private System.Windows.Forms.TextBox searchBox;
+		private System.Windows.Forms.Button editBtn;
 	}
 }
 

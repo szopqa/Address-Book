@@ -23,6 +23,7 @@ namespace AddressBook {
 			InitializeComponent();
 		}
 
+		
 		/*Loads window with adjusted information about selected contact*/
 		private void ContactInfo_form_Load ( object sender, EventArgs e ) {
 			showInfoAboutSelected();

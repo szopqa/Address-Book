@@ -14,9 +14,11 @@ namespace AddressBook {
 
 		
 		#region Properties
-		private List<People> Contacts = new List<People>();
 		private AddNew_form addWindow = new AddNew_form ();
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
+		private Edit_form editWindow = new Edit_form();
+
+		public static List<People> Contacts = new List<People>();
 		private DataManager data = new DataManager ();
 		private People selectedContact = new People();
 		#endregion
@@ -64,8 +66,9 @@ namespace AddressBook {
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
 
-			moreInfoWindow.getInfoAboutSelected(selectedContact);
-			moreInfoWindow.ShowDialog();
+
+				moreInfoWindow.getInfoAboutSelected(selectedContact);
+				moreInfoWindow.ShowDialog();
 
 		}
 
@@ -121,6 +124,24 @@ namespace AddressBook {
 
 			updateContactsListAfterSearch(contactsFound);
 					
+
+		}
+
+		private void editBtn_Click(object sender, EventArgs e ) {
+
+			bool editedSuccessfully;
+
+			editWindow.getInfoAboutSelected(selectedContact);
+			editWindow.ShowDialog();
+			
+			editedSuccessfully = addNewContactToList(editWindow.getPerson());
+
+			if ( editedSuccessfully == true ) {
+
+				updateContactsList();
+				data.saveContactsToXML(Contacts);
+
+			}
 
 		}
 
