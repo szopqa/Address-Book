@@ -15,31 +15,26 @@ namespace AddressBook {
 
 		public Edit_form () {
 			InitializeComponent();
-			AddBtn.Text = "Edit";
+			AddBtn.Text = "Save changes";
 			editedContact = null;
 		}
 
 		private void Edit_form_Load ( object sender, EventArgs e ) {
-
 			showInfoAboutSelected();
 		}
 
 		public void getInfoAboutSelected ( People p ) {
 
-			if ( p == null ) {
-
-				//TODO: Handle null selected
-
-			}
-			else
+			if ( p != null ) {
 				contactToEdit = p;
-
+			}
 
 		}
 
+		/*Shows info about contact selected to edit*/
 		private void showInfoAboutSelected () {
 
-			NameBox.Text = ( string ) contactToEdit.Name;
+			NameBox.Text = (string) contactToEdit.Name;
 			SurnameBox.Text =(string) contactToEdit.Surname;
 			PhoneBox.Text =(string)contactToEdit.PhoneNumber;
 			MailBox.Text = (string)contactToEdit.EmailAddress;
@@ -50,9 +45,9 @@ namespace AddressBook {
 
 		}
 
+		/*Methods adds new contact with parameters given by user and removes old contact*/		
 		protected override void AddBtn_Click ( object sender, EventArgs e ) {
 
-			//Adding new contact, removing old
 			base.AddBtn_Click(sender, e);
 			editedContact = base.getPerson();
 
