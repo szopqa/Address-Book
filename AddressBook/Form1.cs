@@ -17,6 +17,7 @@ namespace AddressBook {
 		private AddNew_form addWindow = new AddNew_form ();
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
 		private DataManager data = new DataManager ();
+		private People selectedContact;
 		private bool addedSuccessfully;
 
 		public Form1 () {
@@ -60,6 +61,7 @@ namespace AddressBook {
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
 
+			moreInfoWindow.getInfoAboutSelected(selectedContact);
 			moreInfoWindow.ShowDialog();
 
 		}
@@ -97,12 +99,7 @@ namespace AddressBook {
 		private void SearchBtn_Click( object sender, EventArgs e ) {
 
 			string textTyped = searchBox.Text;
-
-			//Looking for proper contact
-			var contactsFound = Contacts.Where(	c => c.Name.ToLower().Contains(textTyped.ToLower())
-													|| c.Surname.ToLower().Contains(textTyped.ToLower())
-													|| c.PhoneNumber.ToLower().Contains(textTyped.ToLower()) );
-
+			var contactsFound = findInContacts(textTyped);
 
 			updateContactsListAfterSearch(contactsFound);
 					
@@ -117,13 +114,14 @@ namespace AddressBook {
 		
 		/*	Handles item select
 		 *	Getting FullName property, to select appropriate object
+		 *	returns selected contact to class
 		 */
 		private void listBox1_SelectedIndexChanged ( object sender, EventArgs e ) {
 
 			//ISSUE: It wont work if there will be two contacts with same name and surname
 			//TODO: Have to create unique id for every contact
 
-			People selectedContact = new People();
+			this.selectedContact = new People();
 
 			string fullNameOfSelected =" ";
 
@@ -143,10 +141,6 @@ namespace AddressBook {
 				
 			}
 			
-
-			//passing selected object
-			moreInfoWindow.getInfoAboutSelected(selectedContact);
-			
 		}
 
 
@@ -157,6 +151,20 @@ namespace AddressBook {
 
 
 		//-------------------FUNCTIONAL METHODS-------------------------
+
+		/*Returns collection of contacts found in list*/
+		private IEnumerable<People> findInContacts (string textTyped) {
+
+			//Looking for proper contact
+			var contactsFound = Contacts.Where(c => c.Name.ToLower().Contains(textTyped.ToLower())
+												   || c.Surname.ToLower().Contains(textTyped.ToLower())
+												   || c.PhoneNumber.ToLower().Contains(textTyped.ToLower()));
+
+
+			return contactsFound;
+		}
+
+
 
 		/*Refreshes list, sorts contacts by their surname*/
 		private void updateContactsList () {
@@ -175,6 +183,7 @@ namespace AddressBook {
 			}
 
 		}
+
 
 		/*Updates contact list after searching*/
 		private void updateContactsListAfterSearch (IEnumerable<People> found) {
@@ -206,6 +215,7 @@ namespace AddressBook {
 
 		}
 
+
 		private void sortContactsInList (ref List<People> listToSort) {
 
 			listToSort = listToSort.OrderBy(t => t.Surname).ToList();		
@@ -227,8 +237,6 @@ namespace AddressBook {
 				return false;
 		}
 
-
-		//----------------END OF FUNCTIONAL METHODS---------------------
 
 	}
 }
