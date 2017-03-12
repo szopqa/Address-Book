@@ -15,6 +15,7 @@ namespace AddressBook {
 
 
 		public DataManager () {
+			/*User/AppData/Address Book Data*/
 			PathFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 		}
 
@@ -121,10 +122,6 @@ namespace AddressBook {
 
 			return contacts;
 		}
-
-
-
-
 
 
 	}

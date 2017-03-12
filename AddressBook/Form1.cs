@@ -12,13 +12,15 @@ using System.Windows.Forms;
 namespace AddressBook {
 	public partial class Form1 : Form {
 
-		//PROPERTIES
+		
+		#region Properties
 		private List<People> Contacts = new List<People>();
 		private AddNew_form addWindow = new AddNew_form ();
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
 		private DataManager data = new DataManager ();
-		private People selectedContact;
-		private bool addedSuccessfully;
+		private People selectedContact = new People();
+		#endregion
+
 
 		public Form1 () {
 
@@ -43,8 +45,9 @@ namespace AddressBook {
 		//--------------------BUTTONS MANAGEMENT------------------------
 
 		private void AddNewBtn_Click ( object sender, EventArgs e ) {
-			
-			//this.Hide();
+
+			bool addedSuccessfully;
+
 			addWindow.ShowDialog();
 			addedSuccessfully = addNewContactToList(addWindow.getPerson());
 
@@ -66,11 +69,26 @@ namespace AddressBook {
 
 		}
 
+
 		private void RemoveBtn_Click( object sender, EventArgs e ) {
 
+			DialogResult res = 
+				MessageBox.Show("Are you sure?","From deleting", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				
+			if(res == DialogResult.Yes ) {
 
+				Contacts.Remove(selectedContact);
+			
+				updateContactsList();
+			
+				//Updates file after deleting contact
+				data.saveContactsToXML(Contacts);
+
+			}
 
 		}
+
+
 
 		/*Shows "Search" button when user type something*/
 		private void searchBox_TextChanged ( object sender, EventArgs e ) {
@@ -121,8 +139,6 @@ namespace AddressBook {
 			//ISSUE: It wont work if there will be two contacts with same name and surname
 			//TODO: Have to create unique id for every contact
 
-			this.selectedContact = new People();
-
 			string fullNameOfSelected =" ";
 
 			try {
@@ -136,7 +152,7 @@ namespace AddressBook {
 			foreach(People contact in Contacts ) {
 
 				if ( contact.FullName.Equals(fullNameOfSelected) ) {
-					selectedContact = contact;
+					this.selectedContact = contact;
 				}
 				
 			}
@@ -236,7 +252,6 @@ namespace AddressBook {
 			else
 				return false;
 		}
-
 
 	}
 }

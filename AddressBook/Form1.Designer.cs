@@ -84,6 +84,7 @@
 			this.RemoveBtn.TabIndex = 3;
 			this.RemoveBtn.Text = "Remove from list";
 			this.RemoveBtn.UseVisualStyleBackColor = true;
+			this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
 			// 
 			// SearchBtn
 			// 
