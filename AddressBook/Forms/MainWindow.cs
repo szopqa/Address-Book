@@ -66,9 +66,18 @@ namespace AddressBook {
 
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
 
+			bool wasContactEdited;
 
-				moreInfoWindow.getInfoAboutSelected(selectedContact);
-				moreInfoWindow.ShowDialog();
+			moreInfoWindow.getInfoAboutSelected(selectedContact);
+			moreInfoWindow.ShowDialog();
+
+			wasContactEdited = moreInfoWindow.WasContactEdited;
+
+			if ( wasContactEdited ) {
+				addNewContactToList(moreInfoWindow.getEditedContact());
+				updateContactsList();
+				data.saveContactsToXML(Contacts);
+			}
 
 		}
 
