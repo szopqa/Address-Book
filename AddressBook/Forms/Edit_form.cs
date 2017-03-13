@@ -51,7 +51,7 @@ namespace AddressBook {
 			base.AddBtn_Click(sender, e);
 			editedContact = base.getPerson();
 
-			Form1.Contacts.Remove(contactToEdit);
+			MainWindow.Contacts.Remove(contactToEdit);
 
 		}
 

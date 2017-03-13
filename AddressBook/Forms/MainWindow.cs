@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AddressBook {
-	public partial class Form1 : Form {
+	public partial class MainWindow: Form {
 
 		
 		#region Properties
@@ -24,7 +24,7 @@ namespace AddressBook {
 		#endregion
 
 
-		public Form1 () {
+		public MainWindow () {
 
 			InitializeComponent();
 			
@@ -109,6 +109,16 @@ namespace AddressBook {
 
 		}
 
+		private void SearchBtn_Click( object sender, EventArgs e ) {
+
+			string textTyped = searchBox.Text;
+			var contactsFound = Finder.findInContacts(textTyped,Contacts);
+
+			updateContactsListAfterSearch(contactsFound);
+					
+
+		}
+		
 
 		private void ContactsList_MouseDoubleClick (object sender, MouseEventArgs e) {
 
@@ -117,15 +127,6 @@ namespace AddressBook {
 		}
 
 
-		private void SearchBtn_Click( object sender, EventArgs e ) {
-
-			string textTyped = searchBox.Text;
-			var contactsFound = findInContacts(textTyped);
-
-			updateContactsListAfterSearch(contactsFound);
-					
-
-		}
 
 		private void editBtn_Click(object sender, EventArgs e ) {
 
@@ -188,19 +189,6 @@ namespace AddressBook {
 
 
 		//-------------------FUNCTIONAL METHODS-------------------------
-
-		/*Returns collection of contacts found in list*/
-		private IEnumerable<People> findInContacts (string textTyped) {
-
-			//Looking for proper contact
-			var contactsFound = Contacts.Where(c => c.Name.ToLower().Contains(textTyped.ToLower())
-												   || c.Surname.ToLower().Contains(textTyped.ToLower())
-												   || c.PhoneNumber.ToLower().Contains(textTyped.ToLower()));
-
-
-			return contactsFound;
-		}
-
 
 
 		/*Refreshes list, sorts contacts by their surname*/

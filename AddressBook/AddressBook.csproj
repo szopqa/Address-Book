@@ -64,45 +64,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNew_form.cs">
+    <Compile Include="Forms\AddNew_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNew_form.Designer.cs">
+    <Compile Include="Forms\AddNew_form.Designer.cs">
       <DependentUpon>AddNew_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContactInfo_form.cs">
+    <Compile Include="Forms\ContactInfo_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContactInfo_form.Designer.cs">
+    <Compile Include="Forms\ContactInfo_form.Designer.cs">
       <DependentUpon>ContactInfo_form.cs</DependentUpon>
     </Compile>
     <Compile Include="DataManager.cs" />
-    <Compile Include="Edit_form.cs">
+    <Compile Include="Forms\Edit_form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit_form.Designer.cs">
+    <Compile Include="Forms\Edit_form.Designer.cs">
       <DependentUpon>Edit_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Finder.cs" />
+    <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="People.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddNew_form.resx">
+    <EmbeddedResource Include="Forms\AddNew_form.resx">
       <DependentUpon>AddNew_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContactInfo_form.resx">
+    <EmbeddedResource Include="Forms\ContactInfo_form.resx">
       <DependentUpon>ContactInfo_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit_form.resx">
+    <EmbeddedResource Include="Forms\Edit_form.resx">
       <DependentUpon>Edit_form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
