@@ -16,11 +16,11 @@ namespace AddressBook {
 		public Edit_form () {
 			InitializeComponent();
 			AddBtn.Text = "Save changes";
-			editedContact = null;
 		}
 
 		private void Edit_form_Load ( object sender, EventArgs e ) {
 			showInfoAboutSelected();
+			editedContact = null;
 		}
 
 		public void getInfoAboutSelected ( People p ) {
