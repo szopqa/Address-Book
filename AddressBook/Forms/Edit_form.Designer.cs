@@ -30,6 +30,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.ClientSize = new System.Drawing.Size(572, 333);
 			this.Name = "Edit_form";
+			this.Text = "Edit";
 			this.Load += new System.EventHandler(this.Edit_form_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

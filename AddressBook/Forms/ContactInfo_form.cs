@@ -69,7 +69,7 @@ namespace AddressBook {
 
 		private void editBtn_Click ( object sender, EventArgs e ) {
 
-			this.Hide();
+
 			editWindow.getInfoAboutSelected(selectedContact);
 			editWindow.ShowDialog();
 
@@ -84,7 +84,9 @@ namespace AddressBook {
 				WasContactEdited = false;
 			}
 
+
 		}
+
 
 
 
