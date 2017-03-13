@@ -16,11 +16,11 @@ namespace AddressBook {
 		public Edit_form () {
 			InitializeComponent();
 			AddBtn.Text = "Save changes";
-			editedContact = null;
 		}
 
 		private void Edit_form_Load ( object sender, EventArgs e ) {
 			showInfoAboutSelected();
+			editedContact = null;
 		}
 
 		public void getInfoAboutSelected ( People p ) {
@@ -51,7 +51,7 @@ namespace AddressBook {
 			base.AddBtn_Click(sender, e);
 			editedContact = base.getPerson();
 
-			Form1.Contacts.Remove(contactToEdit);
+			MainWindow.Contacts.Remove(contactToEdit);
 
 		}
 

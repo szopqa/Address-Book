@@ -1,5 +1,5 @@
 ﻿namespace AddressBook {
-	partial class Form1 {
+	partial class MainWindow {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -125,7 +125,7 @@
 			this.editBtn.UseVisualStyleBackColor = true;
 			this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
 			// 
-			// Form1
+			// MainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,9 +138,9 @@
 			this.Controls.Add(this.ShowMoreBtn);
 			this.Controls.Add(this.AddNewBtn);
 			this.Controls.Add(this.ContactsGroupBox);
-			this.Name = "Form1";
+			this.Name = "MainWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Form1";
+			this.Text = "Address Book";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.ContactsGroupBox.ResumeLayout(false);
 			this.ResumeLayout(false);
