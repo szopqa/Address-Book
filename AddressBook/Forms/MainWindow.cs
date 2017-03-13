@@ -63,12 +63,27 @@ namespace AddressBook {
 
 		}
 
-
+		/*Function shows more info about selected contact in new window, in which
+		 * user can edit selected contact.
+		 * 
+		 * Param	wasContactEdited specifies whether contact was edited inside moreInfo window
+		 *If yes it edits chosen contact
+		 *If no, nothing changes
+		 */
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
 
+			bool wasContactEdited;
 
-				moreInfoWindow.getInfoAboutSelected(selectedContact);
-				moreInfoWindow.ShowDialog();
+			moreInfoWindow.getInfoAboutSelected(selectedContact);
+			moreInfoWindow.ShowDialog();
+
+			wasContactEdited = moreInfoWindow.WasContactEdited;
+
+			if ( wasContactEdited ) {
+				addNewContactToList(moreInfoWindow.getEditedContact());
+				updateContactsList();
+				data.saveContactsToXML(Contacts);
+			}
 
 		}
 

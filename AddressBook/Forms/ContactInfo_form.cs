@@ -15,30 +15,34 @@ namespace AddressBook {
 		//TODO: Or if contact is not selected find contact inside, and then show more info
 		//Idea: Search button disabled when user selected contact from list, enabled if not
 
+		public bool WasContactEdited { get; set; }
 
 		private People selectedContact = new People();
+		private People editedContact;
+		Edit_form editWindow = new Edit_form();
+
 
 
 		public ContactInfo_form () {
 			InitializeComponent();
 		}
 
+	
 		
 		/*Loads window with adjusted information about selected contact*/
 		private void ContactInfo_form_Load ( object sender, EventArgs e ) {
 			showInfoAboutSelected();
+			editedContact = null;
 		}
 
 		/*Copies selected object's properties to local one*/
 		public void getInfoAboutSelected(People p) {
 
-			if(p == null ) {
+			if(p != null ) {
 
-				//TODO: Handle null selected
-
-			}else
 				selectedContact = p;
 
+			}
 			
 		}
 
@@ -55,10 +59,39 @@ namespace AddressBook {
 
 		}
 
+
+
 		private void backButton_Click ( object sender, EventArgs e ) {
 			this.Close();
 		}
 
-		
+
+
+		private void editBtn_Click ( object sender, EventArgs e ) {
+
+
+			editWindow.getInfoAboutSelected(selectedContact);
+			editWindow.ShowDialog();
+
+			if(editWindow.getPerson() != null ) {
+
+				WasContactEdited = true;
+				this.editedContact = editWindow.getPerson();
+
+			}
+			else {
+				//Wrong data typed so nothing changes
+				WasContactEdited = false;
+			}
+
+
+		}
+
+
+
+
+		public People getEditedContact () {
+			return editedContact;
+		}
 	}
 }
