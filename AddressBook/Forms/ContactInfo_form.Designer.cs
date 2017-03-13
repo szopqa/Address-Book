@@ -37,6 +37,7 @@
 			this.AddressInfo = new System.Windows.Forms.TextBox();
 			this.NotesInfo = new System.Windows.Forms.TextBox();
 			this.backButton = new System.Windows.Forms.Button();
+			this.editBtn = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// NameHeader
@@ -171,15 +172,26 @@
 			this.backButton.Name = "backButton";
 			this.backButton.Size = new System.Drawing.Size(91, 37);
 			this.backButton.TabIndex = 2;
-			this.backButton.Text = "OK";
+			this.backButton.Text = "Back";
 			this.backButton.UseVisualStyleBackColor = true;
 			this.backButton.Click += new System.EventHandler(this.backButton_Click);
+			// 
+			// editBtn
+			// 
+			this.editBtn.Location = new System.Drawing.Point(89, 281);
+			this.editBtn.Name = "editBtn";
+			this.editBtn.Size = new System.Drawing.Size(81, 36);
+			this.editBtn.TabIndex = 3;
+			this.editBtn.Text = "Edit contact";
+			this.editBtn.UseVisualStyleBackColor = true;
+			this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
 			// 
 			// ContactInfo_form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(507, 382);
+			this.Controls.Add(this.editBtn);
 			this.Controls.Add(this.backButton);
 			this.Controls.Add(this.NotesInfo);
 			this.Controls.Add(this.AddressInfo);
@@ -218,5 +230,6 @@
 		private System.Windows.Forms.TextBox AddressInfo;
 		private System.Windows.Forms.TextBox NotesInfo;
 		private System.Windows.Forms.Button backButton;
+		private System.Windows.Forms.Button editBtn;
 	}
 }
