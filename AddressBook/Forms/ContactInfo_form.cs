@@ -70,13 +70,28 @@ namespace AddressBook {
 		private void editBtn_Click ( object sender, EventArgs e ) {
 
 
-			editWindow.getInfoAboutSelected(selectedContact);
+			//Refreshes info about edited contact in EditWindow
+			if (editedContact != null ) {
+
+				editWindow.getInfoAboutSelected(editedContact);
+
+			}else {
+
+				editWindow.getInfoAboutSelected(selectedContact);
+
+			}
+
 			editWindow.ShowDialog();
+
+
+
 
 			if(editWindow.getPerson() != null ) {
 
 				WasContactEdited = true;
 				this.editedContact = editWindow.getPerson();
+
+				refreshWindow();
 
 			}
 			else {
@@ -87,6 +102,14 @@ namespace AddressBook {
 
 		}
 
+		private void refreshWindow () {
+			NameHeader.Text = editedContact.Name + " " + selectedContact.Surname;
+			PhoneInfo.Text = editedContact.PhoneNumber;
+			MailInfo.Text = editedContact.EmailAddress;
+			CityInfo.Text = editedContact.City;
+			AddressInfo.Text = editedContact.Address;
+			NotesInfo.Text = editedContact.AdditionalInfo;
+		}
 
 
 

@@ -82,6 +82,7 @@ namespace AddressBook {
 			if ( wasContactEdited ) {
 				addNewContactToList(moreInfoWindow.getEditedContact());
 				updateContactsList();
+				
 				data.saveContactsToXML(Contacts);
 			}
 
