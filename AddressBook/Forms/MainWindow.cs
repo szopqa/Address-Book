@@ -65,6 +65,7 @@ namespace AddressBook {
 
 		}
 
+
 		/*Function shows more info about selected contact in new window, in which
 		 * user can edit selected contact.
 		 * 
@@ -300,6 +301,5 @@ namespace AddressBook {
 				return false;
 		}
 
-	
 	}
 }

@@ -69,7 +69,6 @@ namespace AddressBook {
 				XmlNode xmlTitle = xmlDoc.CreateElement("Contact");
 				XmlNode xmlID = xmlDoc.CreateElement("ID");
 				XmlNode xmlFullName = xmlDoc.CreateElement("FullName");
-				XmlNode xmlBirthDate = xmlDoc.CreateElement("BirthDate");
 				XmlNode xmlName = xmlDoc.CreateElement("Name");
 				XmlNode xmlSurname = xmlDoc.CreateElement("Surname");
 				XmlNode xmlPhoneNumber = xmlDoc.CreateElement("PhoneNumber");
@@ -81,7 +80,6 @@ namespace AddressBook {
 
 				xmlID.InnerText = person.ID.ToString();
 				xmlFullName.InnerText = person.FullName;
-				xmlBirthDate.InnerText = person.BirthDate;
 				xmlName.InnerText = person.Name;
 				xmlSurname.InnerText = person.Surname;
 				xmlPhoneNumber.InnerText = person.PhoneNumber;
@@ -92,7 +90,6 @@ namespace AddressBook {
 
 				xmlTitle.AppendChild(xmlID);
 				xmlTitle.AppendChild(xmlFullName);
-				xmlTitle.AppendChild(xmlBirthDate);
 				xmlTitle.AppendChild(xmlName);
 				xmlTitle.AppendChild(xmlSurname);
 				xmlTitle.AppendChild(xmlPhoneNumber);
@@ -121,7 +118,6 @@ namespace AddressBook {
 
 				person.ID =int.Parse(xNode.SelectSingleNode("ID").InnerText);
 				person.FullName = xNode.SelectSingleNode("FullName").InnerText;
-				person.BirthDate = xNode.SelectSingleNode("BirthDate").InnerText;
 				person.Name = xNode.SelectSingleNode("Name").InnerText;
 				person.Surname = xNode.SelectSingleNode("Surname").InnerText;
 				person.PhoneNumber = xNode.SelectSingleNode("PhoneNumber").InnerText;

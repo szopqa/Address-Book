@@ -23,12 +23,22 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent () {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_form));
 			this.SuspendLayout();
+			// 
+			// AddBtn
+			// 
+			this.AddBtn.BackColor = System.Drawing.Color.Teal;
+			this.AddBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddBtn.Image")));
+			this.AddBtn.Location = new System.Drawing.Point(245, 280);
+			this.AddBtn.Size = new System.Drawing.Size(88, 70);
+			this.AddBtn.Text = "";
+			this.AddBtn.UseVisualStyleBackColor = false;
 			// 
 			// Edit_form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.ClientSize = new System.Drawing.Size(572, 333);
+			this.ClientSize = new System.Drawing.Size(572, 353);
 			this.Name = "Edit_form";
 			this.Text = "Edit";
 			this.Load += new System.EventHandler(this.Edit_form_Load);
