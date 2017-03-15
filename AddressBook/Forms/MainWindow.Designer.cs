@@ -28,7 +28,6 @@
 			this.AddNewBtn = new System.Windows.Forms.Button();
 			this.ShowMoreBtn = new System.Windows.Forms.Button();
 			this.RemoveBtn = new System.Windows.Forms.Button();
-			this.SearchBtn = new System.Windows.Forms.Button();
 			this.SettingsBtn = new System.Windows.Forms.Button();
 			this.searchBox = new System.Windows.Forms.TextBox();
 			this.editBtn = new System.Windows.Forms.Button();
@@ -59,7 +58,7 @@
 			// 
 			// AddNewBtn
 			// 
-			this.AddNewBtn.Location = new System.Drawing.Point(341, 98);
+			this.AddNewBtn.Location = new System.Drawing.Point(341, 81);
 			this.AddNewBtn.Name = "AddNewBtn";
 			this.AddNewBtn.Size = new System.Drawing.Size(150, 40);
 			this.AddNewBtn.TabIndex = 1;
@@ -69,7 +68,7 @@
 			// 
 			// ShowMoreBtn
 			// 
-			this.ShowMoreBtn.Location = new System.Drawing.Point(341, 156);
+			this.ShowMoreBtn.Location = new System.Drawing.Point(341, 150);
 			this.ShowMoreBtn.Name = "ShowMoreBtn";
 			this.ShowMoreBtn.Size = new System.Drawing.Size(150, 40);
 			this.ShowMoreBtn.TabIndex = 2;
@@ -87,17 +86,6 @@
 			this.RemoveBtn.UseVisualStyleBackColor = true;
 			this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
 			// 
-			// SearchBtn
-			// 
-			this.SearchBtn.Location = new System.Drawing.Point(493, 34);
-			this.SearchBtn.Name = "SearchBtn";
-			this.SearchBtn.Size = new System.Drawing.Size(68, 30);
-			this.SearchBtn.TabIndex = 4;
-			this.SearchBtn.Text = "Search";
-			this.SearchBtn.UseVisualStyleBackColor = true;
-			this.SearchBtn.Visible = false;
-			this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
-			// 
 			// SettingsBtn
 			// 
 			this.SettingsBtn.Location = new System.Drawing.Point(507, 294);
@@ -109,7 +97,7 @@
 			// 
 			// searchBox
 			// 
-			this.searchBox.Location = new System.Drawing.Point(341, 40);
+			this.searchBox.Location = new System.Drawing.Point(403, 34);
 			this.searchBox.Name = "searchBox";
 			this.searchBox.Size = new System.Drawing.Size(150, 20);
 			this.searchBox.TabIndex = 6;
@@ -133,7 +121,6 @@
 			this.Controls.Add(this.editBtn);
 			this.Controls.Add(this.searchBox);
 			this.Controls.Add(this.SettingsBtn);
-			this.Controls.Add(this.SearchBtn);
 			this.Controls.Add(this.RemoveBtn);
 			this.Controls.Add(this.ShowMoreBtn);
 			this.Controls.Add(this.AddNewBtn);
@@ -154,7 +141,6 @@
 		private System.Windows.Forms.Button AddNewBtn;
 		private System.Windows.Forms.Button ShowMoreBtn;
 		private System.Windows.Forms.Button RemoveBtn;
-		private System.Windows.Forms.Button SearchBtn;
 		private System.Windows.Forms.Button SettingsBtn;
 		private System.Windows.Forms.ListBox ContactsList;
 		private System.Windows.Forms.TextBox searchBox;

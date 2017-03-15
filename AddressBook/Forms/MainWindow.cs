@@ -27,6 +27,8 @@ namespace AddressBook {
 		public MainWindow () {
 
 			InitializeComponent();
+
+			selectedContact = null;
 			
 		}
 
@@ -72,18 +74,28 @@ namespace AddressBook {
 		 */
 		private void ShowMoreBtn_Click ( object sender, EventArgs e ) {
 
-			bool wasContactEdited;
+			if ( selectedContact == null ) {
 
-			moreInfoWindow.getInfoAboutSelected(selectedContact);
-			moreInfoWindow.ShowDialog();
+				MessageBox.Show("Select contact first!");
 
-			wasContactEdited = moreInfoWindow.WasContactEdited;
+			}else {
 
-			if ( wasContactEdited ) {
-				addNewContactToList(moreInfoWindow.getEditedContact());
-				updateContactsList();
-				data.saveContactsToXML(Contacts);
+				bool wasContactEdited;
+
+				moreInfoWindow.getInfoAboutSelected(selectedContact);
+				moreInfoWindow.ShowDialog();
+
+				wasContactEdited = moreInfoWindow.WasContactEdited;
+
+				if ( wasContactEdited ) {
+					addNewContactToList(moreInfoWindow.getEditedContact());
+					updateContactsList();
+				
+					data.saveContactsToXML(Contacts);
+				}
+
 			}
+
 
 		}
 
@@ -107,33 +119,20 @@ namespace AddressBook {
 		}
 
 
+		private void searchBox_TextChanged( object sender, EventArgs e ) {
 
-		/*Shows "Search" button when user type something*/
-		private void searchBox_TextChanged ( object sender, EventArgs e ) {
-
-			if ( !string.IsNullOrWhiteSpace(searchBox.Text) ) {
-
-				SearchBtn.Visible = true;
-
+			if ( string.IsNullOrWhiteSpace(searchBox.Text) ) {
+				updateContactsList();
 			}else {
 
-				updateContactsList();
-				SearchBtn.Visible = false;
+				string textTyped = searchBox.Text;
+				var contactsFound = Finder.findInContacts(textTyped, Contacts);
+				updateContactsListAfterSearch(contactsFound);
 
 			}
 
 		}
 
-		private void SearchBtn_Click( object sender, EventArgs e ) {
-
-			string textTyped = searchBox.Text;
-			var contactsFound = Finder.findInContacts(textTyped,Contacts);
-
-			updateContactsListAfterSearch(contactsFound);
-					
-
-		}
-		
 
 		private void ContactsList_MouseDoubleClick (object sender, MouseEventArgs e) {
 
@@ -145,17 +144,26 @@ namespace AddressBook {
 
 		private void editBtn_Click(object sender, EventArgs e ) {
 
-			bool editedSuccessfully;
+			if( selectedContact == null ) {
 
-			editWindow.getInfoAboutSelected(selectedContact);
-			editWindow.ShowDialog();
+				MessageBox.Show("Select contact first!");
+
+			}
+			else {
+
+				bool editedSuccessfully;
+
+				editWindow.getInfoAboutSelected(selectedContact);
+				editWindow.ShowDialog();
 			
-			editedSuccessfully = addNewContactToList(editWindow.getPerson());
+				editedSuccessfully = addNewContactToList(editWindow.getPerson());
 
-			if ( editedSuccessfully == true ) {
+				if ( editedSuccessfully == true ) {
 
-				updateContactsList();
-				data.saveContactsToXML(Contacts);
+					updateContactsList();
+					data.saveContactsToXML(Contacts);
+
+				}
 
 			}
 
