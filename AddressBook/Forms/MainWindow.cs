@@ -65,6 +65,7 @@ namespace AddressBook {
 
 		}
 
+
 		/*Function shows more info about selected contact in new window, in which
 		 * user can edit selected contact.
 		 * 
@@ -141,7 +142,7 @@ namespace AddressBook {
 		}
 
 
-
+		/*Handles edit option*/
 		private void editBtn_Click(object sender, EventArgs e ) {
 
 			if( selectedContact == null ) {
@@ -168,13 +169,28 @@ namespace AddressBook {
 			}
 
 		}
+		
 
-		private void SettingsBtn_Click( object sender, EventArgs e) {
 
+		private void exportBtn_Click ( object sender, EventArgs e ) {
+			
+
+			data.exportToVCF(Contacts);
+			
+			bool exportSucceeded = data.VCFsaveSucceed();
+
+
+			if ( exportSucceeded ) {
+				MessageBox.Show("Files have been exported successfully to " + data.VCFpath);
+			}
+			else {
+				MessageBox.Show("Export Failed!");
+			}
+			
 		}
 
 
-		
+
 		/*	Handles item select
 		 *	Getting FullName property, to select appropriate object
 		 *	returns selected contact to class

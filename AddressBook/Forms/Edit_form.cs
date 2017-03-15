@@ -15,7 +15,6 @@ namespace AddressBook {
 
 		public Edit_form () {
 			InitializeComponent();
-			AddBtn.Text = "Save changes";
 		}
 
 		private void Edit_form_Load ( object sender, EventArgs e ) {
