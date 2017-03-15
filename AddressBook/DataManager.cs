@@ -12,11 +12,26 @@ namespace AddressBook {
 
 		public string Filename { get; set; }
 		public string PathFolder { get; set; }
+		public string VCFpath { get; set; }
+
+		private bool VCFsaveResult;
+		private int vCardVersion;
+
+
 
 
 		public DataManager () {
+			
 			/*User/AppData/Address Book Data*/
 			PathFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+			
+			/*Saving Vcard to desktop as default*/
+			VCFpath = Environment.GetFolderPath( System.Environment.SpecialFolder.DesktopDirectory) 
+					+ "\\AddressBook_contacts.vcf";
+
+			VCFsaveResult = false;
+
+			vCardVersion = 1; //used if file exists, then adds for example _1 at the end 
 		}
 
 
@@ -122,7 +137,61 @@ namespace AddressBook {
 
 			return contacts;
 		}
+		
 
+
+		public void exportToVCF (List<People> ContactsToExport) {
+
+			StringBuilder vcf = new StringBuilder();		
+			
+
+			foreach(People contact in ContactsToExport ) {
+
+
+				vcf.Append("BEGIN:VCARD" + System.Environment.NewLine);
+				vcf.Append("VERSION:3.0" + System.Environment.NewLine);
+				vcf.Append("N:" + contact.Surname + ";" + contact.Name + System.Environment.NewLine);
+				vcf.Append("FN:" + contact.FullName + System.Environment.NewLine);
+				vcf.Append("TEL;CELL:" + contact.PhoneNumber + System.Environment.NewLine);
+				vcf.Append("EMAIL;TYPE=INTERNET:" + contact.EmailAddress + System.Environment.NewLine);
+				vcf.Append("END:VCARD" + System.Environment.NewLine);
+
+			}
+
+
+			//TODO : If file exists adds for eg _1 at the end of the filename
+			/*
+			if( File.Exists( VCFpath ) ) {
+
+
+				int index = VCFpath.IndexOf(".vcf");
+
+				VCFpath.Insert(index - 1, "_" + vCardVersion.ToString());
+
+				vCardVersion++;
+			}
+			*/
+
+			try {
+
+				File.WriteAllText( VCFpath , vcf.ToString() );
+				VCFsaveResult = true;
+			}
+			catch ( Exception ex ) {
+
+				VCFsaveResult = false;
+
+			}
+			
+		}
+
+
+
+		public bool VCFsaveSucceed () {
+
+			return VCFsaveResult;
+			
+		}
 
 	}
 }
