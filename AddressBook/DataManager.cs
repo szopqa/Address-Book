@@ -10,12 +10,10 @@ namespace AddressBook {
 	class DataManager {
 
 
-		public string Filename { get; set; }
-		public string PathFolder { get; set; }
+		public string XmlPathFolder { get; set; }
 		public string VCFpath { get; set; }
 
 		private bool VCFsaveResult;
-		private int vCardVersion;
 
 
 
@@ -23,7 +21,7 @@ namespace AddressBook {
 		public DataManager () {
 			
 			/*User/AppData/Address Book Data*/
-			PathFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+			XmlPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 			
 			/*Saving Vcard to desktop as default*/
 			VCFpath = Environment.GetFolderPath( System.Environment.SpecialFolder.DesktopDirectory) 
@@ -31,22 +29,22 @@ namespace AddressBook {
 
 			VCFsaveResult = false;
 
-			vCardVersion = 1; //used if file exists, then adds for example _1 at the end 
 		}
 
 
 
 		public void createDataFolder () {
 
-			if ( !Directory.Exists(PathFolder + "\\Address Book Data") ) {
-				Directory.CreateDirectory(PathFolder + "\\Address Book Data");
+			if ( !Directory.Exists(XmlPathFolder + "\\Address Book Data") ) {
+				Directory.CreateDirectory(XmlPathFolder + "\\Address Book Data");
 			}
 		}
 
+
 		public void checkIfContsXmlExists () {
 
-			if(!File.Exists(PathFolder + "\\Address Book Data\\data.xml") ) {
-				XmlTextWriter xWrite = new XmlTextWriter(PathFolder + "\\Address Book Data\\data.xml", Encoding.UTF8);
+			if(!File.Exists(XmlPathFolder + "\\Address Book Data\\data.xml") ) {
+				XmlTextWriter xWrite = new XmlTextWriter(XmlPathFolder + "\\Address Book Data\\data.xml", Encoding.UTF8);
 				xWrite.WriteStartElement("Contacts");
 				xWrite.WriteEndElement();
 				xWrite.Close();
@@ -59,7 +57,7 @@ namespace AddressBook {
 		public void saveContactsToXML (List<People> contacts) {
 
 			XmlDocument xmlDoc = new XmlDocument();
-			xmlDoc.Load(PathFolder + "\\Address Book Data\\data.xml");
+			xmlDoc.Load(XmlPathFolder + "\\Address Book Data\\data.xml");
 
 			XmlNode xNode = xmlDoc.SelectSingleNode("Contacts");
 			xNode.RemoveAll();
@@ -102,7 +100,7 @@ namespace AddressBook {
 
 			}
 
-			xmlDoc.Save(PathFolder + "\\Address Book Data\\data.xml");
+			xmlDoc.Save(XmlPathFolder + "\\Address Book Data\\data.xml");
 		}
 
 
@@ -110,7 +108,7 @@ namespace AddressBook {
 
 			XmlDocument xmlDoc = new XmlDocument();
 			List<People> contacts = new List<People>();
-			xmlDoc.Load(PathFolder + "\\Address Book Data\\data.xml");
+			xmlDoc.Load(XmlPathFolder + "\\Address Book Data\\data.xml");
 
 			foreach(XmlNode xNode in xmlDoc.SelectNodes("Contacts/Contact") ) {
 

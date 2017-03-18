@@ -19,7 +19,7 @@ namespace AddressBook {
 
 		private People selectedContact = new People();
 		private People editedContact;
-		Edit_form editWindow = new Edit_form();
+		private Edit_form editWindow = new Edit_form();
 
 
 
@@ -36,11 +36,11 @@ namespace AddressBook {
 		}
 
 		/*Copies selected object's properties to local one*/
-		public void getInfoAboutSelected(People p) {
+		public void getInfoAboutSelected(People person) {
 
-			if(p != null ) {
+			if(person != null ) {
 
-				selectedContact = p;
+				selectedContact = person;
 
 			}
 			
@@ -72,7 +72,7 @@ namespace AddressBook {
 
 			//Refreshes info about edited contact in EditWindow
 			if (editedContact != null ) {
-
+				//Refreshed info about edited contact 
 				editWindow.getInfoAboutSelected(editedContact);
 
 			}else {
@@ -88,11 +88,13 @@ namespace AddressBook {
 
 			if(editWindow.getPerson() != null ) {
 
+				//Gets changed People object after edit 
+
 				WasContactEdited = true;
 				this.editedContact = editWindow.getPerson();
 
 				refreshWindow();
-
+					
 			}
 			else {
 				//Wrong data typed so nothing changes
@@ -103,12 +105,14 @@ namespace AddressBook {
 		}
 
 		private void refreshWindow () {
+
 			NameHeader.Text = editedContact.Name + " " + selectedContact.Surname;
 			PhoneInfo.Text = editedContact.PhoneNumber;
 			MailInfo.Text = editedContact.EmailAddress;
 			CityInfo.Text = editedContact.City;
 			AddressInfo.Text = editedContact.Address;
 			NotesInfo.Text = editedContact.AdditionalInfo;
+
 		}
 
 

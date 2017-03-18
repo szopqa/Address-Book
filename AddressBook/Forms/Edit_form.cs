@@ -22,10 +22,10 @@ namespace AddressBook {
 			editedContact = null;
 		}
 
-		public void getInfoAboutSelected ( People p ) {
+		public void getInfoAboutSelected ( People selectedPerson ) {
 
-			if ( p != null ) {
-				contactToEdit = p;
+			if ( selectedPerson != null ) {
+				contactToEdit = selectedPerson;
 			}
 
 		}
@@ -33,13 +33,13 @@ namespace AddressBook {
 		/*Shows info about contact selected to edit*/
 		private void showInfoAboutSelected () {
 
-			NameBox.Text = (string) contactToEdit.Name;
-			SurnameBox.Text =(string) contactToEdit.Surname;
-			PhoneBox.Text =(string)contactToEdit.PhoneNumber;
-			MailBox.Text = (string)contactToEdit.EmailAddress;
-			CityBox.Text = (string)contactToEdit.City;
-			AddressBox.Text =(string) contactToEdit.Address;
-			NoteBox.Text = (string)contactToEdit.AdditionalInfo;
+			NameBox.Text =  contactToEdit.Name;
+			SurnameBox.Text =  contactToEdit.Surname;
+			PhoneBox.Text =contactToEdit.PhoneNumber;
+			MailBox.Text = contactToEdit.EmailAddress;
+			CityBox.Text = contactToEdit.City;
+			AddressBox.Text = contactToEdit.Address;
+			NoteBox.Text = contactToEdit.AdditionalInfo;
 			
 
 		}
@@ -50,6 +50,8 @@ namespace AddressBook {
 			base.AddBtn_Click(sender, e);
 			editedContact = base.getPerson();
 
+
+			//The reason why contacts list is a public static field
 			MainWindow.Contacts.Remove(contactToEdit);
 
 		}

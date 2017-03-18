@@ -18,6 +18,7 @@ namespace AddressBook {
 		private ContactInfo_form moreInfoWindow = new ContactInfo_form();
 		private Edit_form editWindow = new Edit_form();
 
+
 		public static List<People> Contacts = new List<People>();
 		private DataManager data = new DataManager ();
 		private People selectedContact = new People();
@@ -55,7 +56,7 @@ namespace AddressBook {
 			addWindow.ShowDialog();
 			addedSuccessfully = addNewContactToList(addWindow.getPerson());
 
-			if(addedSuccessfully == true ) {
+			if( addedSuccessfully ) {
 
 				updateContactsList();
 				data.saveContactsToXML(Contacts);

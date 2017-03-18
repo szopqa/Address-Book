@@ -46,7 +46,6 @@ namespace AddressBook {
 			/*Name and Phone Number fields have to be passed to create new contact*/
 			bool isPhoneNumberEmpty = string.IsNullOrWhiteSpace(PhoneBox.Text);
 			bool isNameEmpty = string.IsNullOrWhiteSpace(NameBox.Text);
-			bool isSurnameEmpty = string.IsNullOrWhiteSpace(SurnameBox.Text);
 
 
 			if ( isPhoneNumberEmpty == true || isNameEmpty == true ) {
@@ -91,6 +90,8 @@ namespace AddressBook {
 
 		}
 
+
+		/*Email address has to have a least one "." sign and "@" sign*/
 		protected bool isMailCorrect (string strTyped) {
 
 			bool isCorrect = false;
@@ -104,7 +105,7 @@ namespace AddressBook {
 		}
 
 
-		/*Checks if user typed phone number as string numbers*/
+		/*Checks if user typed phone number as string numbers. Allows to insert one "+" char*/
 		protected bool isNumeric (string strTyped) {
 
 
@@ -158,7 +159,7 @@ namespace AddressBook {
 			NoteBox.Clear();
 		}
 		
-		/*Returns null if user filled boxes wrong*/
+		/*Returns null if user filled boxes wrong. In MainWindow's AddNewContact() method null wont be added to list */
 		public People getPerson () {
 
 			return newContact;
